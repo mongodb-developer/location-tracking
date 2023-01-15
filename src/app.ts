@@ -5,7 +5,7 @@ import AppResponse from './types/AppResponse';
 import routes from './routes';
 import cors from 'cors';
 import db from './dbClient';
-import { dbCollections } from './constants';
+import { indexUserCollection } from './createIndex';
 
 // Create Express server
 const app = express();
@@ -13,12 +13,8 @@ const app = express();
 // Connect to DB
 (async () => {
   try {
-    const connection = await db();
-    // Index email field on users collection
-    await connection
-      .db()
-      .collection(dbCollections.users)
-      .createIndex({ email: 1 }, { unique: true });
+    const dbClient = await db();
+    await indexUserCollection(dbClient);
   } catch (error) {
     console.error(error);
     console.log('Cannot establish MongoDB connection');
