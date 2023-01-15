@@ -1,23 +1,11 @@
-import IUser from 'IUser';
-import dbClient from '../../dbClient';
-import { dbCollections } from '../../constants';
-import { ObjectId, Collection, Document } from 'mongodb';
+import { ObjectId } from 'mongodb';
+import UserCollection, { IUserDocument } from '../../models/User';
 
-interface UserDocument extends Document, IUser {
-  _id: ObjectId;
-}
-
-const findById = async (id: string): Promise<UserDocument> => {
+const findById = async (id: string): Promise<IUserDocument | null> => {
   try {
-    const client = await dbClient();
-    const userCollection: Collection<UserDocument> = client
-      .db()
-      .collection(dbCollections.users);
-    // Find the user by mongodb Object id
-    const result: UserDocument = await userCollection.findOne({
-      _id: new ObjectId(id),
-    });
-    return result;
+    const collection = await UserCollection();
+    const user = await collection.findOne({ _id: new ObjectId(id) });
+    return user;
   } catch (error) {
     throw error;
   }

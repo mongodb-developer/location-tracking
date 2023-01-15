@@ -14,8 +14,8 @@ const app = express();
 // Connect to DB
 (async () => {
   try {
-    const mongoClient = await dbClient();
-    await createAllIndexes(mongoClient);
+    await dbClient();
+    await createAllIndexes();
     await seed();
   } catch (error) {
     console.error(error);

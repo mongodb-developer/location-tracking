@@ -1,13 +1,15 @@
-import dbClient from '../../dbClient';
+import UserCollection, {
+  IUserDocument,
+} from '../../models/User';
 import IUser from '../../types/IUser';
-import { dbCollections } from '../../constants';
 
-const collection = dbCollections.users;
-
-export default async function createOne(user: IUser) {
+export default async function createOne(
+  user: IUser
+): Promise<IUserDocument> {
   try {
-    const client = await dbClient();
-    const result = await client.db().collection(collection).insertOne(user);
+    const collection = await UserCollection();
+    const newDoc = await collection.insertOne(user);
+    const result = await collection.findOne({ _id: newDoc.insertedId });
     return result;
   } catch (error) {
     throw error;

@@ -1,16 +1,15 @@
-import dbClient from '../../dbClient';
+import DeliveryAssociateCollection, {
+  IDeliveryAssociateDocument,
+} from '../../models/DeliveryAssociate';
 import IDeliveryAssociate from '../../types/IDeliveryAssociate';
-import { dbCollections } from '../../constants';
 
-const collection = dbCollections.deliveryAssociates;
-
-export default async function createOne(deliveryAssociate: IDeliveryAssociate) {
+export default async function createOne(
+  deliveryAssociate: IDeliveryAssociate
+): Promise<IDeliveryAssociateDocument> {
   try {
-    const client = await dbClient();
-    const result = await client
-      .db()
-      .collection(collection)
-      .insertOne(deliveryAssociate);
+    const collection = await DeliveryAssociateCollection();
+    const newDoc = await collection.insertOne(deliveryAssociate);
+    const result = await collection.findOne({ _id: newDoc.insertedId });
     return result;
   } catch (error) {
     throw error;

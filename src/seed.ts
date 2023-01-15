@@ -23,8 +23,8 @@ const userAdam: IUser = {
 };
 
 const main = async () => {
-  const mongoClient = await dbClient();
-  await createAllIndexes(mongoClient);
+  await dbClient();
+  await createAllIndexes(); // Checking indexes on seeders might be required if seeders are executed separately.
   const adam = await findUserByEmail(userAdam.email);
   if (!adam) {
     await createOneUser(userAdam);

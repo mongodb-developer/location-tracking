@@ -1,23 +1,14 @@
-import IDeliveryAssociate from '../../types/IDeliveryAssociate';
-import dbClient from '../../dbClient';
-import { dbCollections } from '../../constants';
-import { ObjectId, Collection, Document } from 'mongodb';
+import DeliveryAssociateCollection, {
+  IDeliveryAssociateDocument,
+} from '../../models/DeliveryAssociate';
 
-interface DADocument extends Document, IDeliveryAssociate {
-  _id: ObjectId;
-}
-
-const findByEmail = async (email: string): Promise<DADocument | null> => {
+const findByEmail = async (
+  email: string
+): Promise<IDeliveryAssociateDocument | null> => {
   try {
-    const client = await dbClient();
-    const daCollection: Collection<DADocument> = client
-      .db()
-      .collection(dbCollections.deliveryAssociates);
-    // Find the user by mongodb Object id
-    const result: DADocument = await daCollection.findOne({
-      email,
-    });
-    return result;
+    const collection = await DeliveryAssociateCollection();
+    const associate = await collection.findOne({ email });
+    return associate;
   } catch (error) {
     throw error;
   }
