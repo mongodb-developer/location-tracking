@@ -4,8 +4,9 @@ import config from './config';
 import AppResponse from './types/AppResponse';
 import routes from './routes';
 import cors from 'cors';
-import db from './dbClient';
-import { indexUserCollection } from './createIndex';
+import dbClient from './dbClient';
+import createAllIndexes from './createIndex';
+import seed from './seed';
 
 // Create Express server
 const app = express();
@@ -13,8 +14,9 @@ const app = express();
 // Connect to DB
 (async () => {
   try {
-    const dbClient = await db();
-    await indexUserCollection(dbClient);
+    const mongoClient = await dbClient();
+    await createAllIndexes(mongoClient);
+    await seed();
   } catch (error) {
     console.error(error);
     console.log('Cannot establish MongoDB connection');

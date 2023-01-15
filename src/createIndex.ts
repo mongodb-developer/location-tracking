@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 import { dbCollections } from './constants';
 
-export const indexUserCollection = async (dbClient: MongoClient) => {
+const indexUserCollection = async (dbClient: MongoClient) => {
   try {
     const usersCollection = dbClient.db().collection(dbCollections.users);
     // createIndex only creates an index if it doesn't already exist
@@ -11,3 +11,9 @@ export const indexUserCollection = async (dbClient: MongoClient) => {
     console.error(error);
   }
 };
+
+const createAllIndexes = async (dbClient: MongoClient) => {
+  await indexUserCollection(dbClient);
+};
+
+export default createAllIndexes;
