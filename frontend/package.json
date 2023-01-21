@@ -1,0 +1,37 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.10.1",
+    "axios": "^0.27.2",
+    "leaflet": "^1.9.3",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-leaflet": "^4.1.0",
+    "react-router-dom": "^6.3.0",
+    "socket.io-client": "^4.5.1"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.0",
+    "@types/lodash": "^4.14.191",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@types/react-router": "^5.1.20",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^3.0.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0"
+  }
+}
