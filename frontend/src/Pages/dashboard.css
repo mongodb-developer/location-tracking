@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+}
+
+.col-1 {
+  flex: 1;
+  padding: 15px 20px;
+}
+
+.col-2 {
+  flex: 1;
+  border: 2px solid black;
+  margin: 10px;
+}
+
+.marker {
+  z-index: 10000 !important;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
