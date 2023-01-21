@@ -9,7 +9,7 @@ const DriverDashboard = () => {
   useEffect(() => {
     // Setting the seeded driver email to identify a logged in driver
     // Modify this part as per your needs like setting an auth token
-    localStorage.setItem('userEmail', DRIVER_EMAIL_DEFAULT);
+    sessionStorage.setItem('userEmail', DRIVER_EMAIL_DEFAULT);
 
     // Establish Socket
     socket.on('connect', () => {

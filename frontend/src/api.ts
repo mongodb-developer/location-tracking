@@ -6,7 +6,7 @@ export const createShipment = async (
   pickupLocation: Point,
   dropLocation: Point
 ): Promise<any> => {
-  const email = localStorage.getItem('userEmail') || USER_EMAIL_DEFAULT;
+  const email = sessionStorage.getItem('userEmail') || USER_EMAIL_DEFAULT;
   const data = { pickupLocation, dropLocation };
   const config = {
     method: 'post',

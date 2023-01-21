@@ -128,7 +128,7 @@ const UserDashboard = () => {
   useEffect(() => {
     // Setting seeded user's email as logged in user
     // You can change this to update logged in user email or id
-    localStorage.setItem('userEmail', USER_EMAIL_DEFAULT);
+    sessionStorage.setItem('userEmail', USER_EMAIL_DEFAULT);
 
     // Establish Socket
     socket.on('connect', () => {
