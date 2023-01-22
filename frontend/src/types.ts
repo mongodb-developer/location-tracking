@@ -75,3 +75,20 @@ export interface IAction {
   type: string;
   payload?: any;
 }
+
+export enum DeliveryAssociateStatus {
+  available = 'available',
+  delivering = 'delivering',
+  off = 'off',
+}
+export interface IDeliveryAssociate {
+  _id: string;
+  email: string;
+  name: string;
+  status: DeliveryAssociateStatus;
+  currentLocation: Point;
+}
+export interface IUpdateDALocation {
+  email: string;
+  location: Point;
+}

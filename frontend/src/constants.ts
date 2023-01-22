@@ -36,6 +36,8 @@ export const socketEvents = {
   DA_LOCATION_CHANGED: 'DA_LOCATION_CHANGED',
   LEAVE_ROOM: 'LEAVE_ROOM',
   SHIPMENT_UPDATED: 'SHIPMENT_UPDATED',
+  SHIPMENT_CREATED: 'SHIPMENT_CREATED',
+  UPDATE_DA_LOCATION: 'UPDATE_DA_LOCATION',
 };
 
 export const infoMsgs: Record<DashboardStatus, IInfo> = {
