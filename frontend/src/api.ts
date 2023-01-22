@@ -8,7 +8,7 @@ export const createShipment = async (
   dropLocation: Point
 ): Promise<any> => {
   const email = sessionStorage.getItem('userEmail') || USER_EMAIL_DEFAULT;
-  const data = { pickupLocation, dropLocation };
+  const data = { pickupLocation, dropLocation, email };
   const config = {
     method: 'post',
     url: `${API_URL}/shipment`,
