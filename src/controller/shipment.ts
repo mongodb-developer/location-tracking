@@ -23,9 +23,6 @@ export const createShipment = async (
       status: ShipmentStatus.requested,
       userId,
     };
-    console.log('newShipment');
-    console.log(newShipment);
-
     const createdShipment = await createOne(newShipment);
     console.log('createdShipment');
     console.log(createdShipment);

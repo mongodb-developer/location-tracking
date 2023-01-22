@@ -3,6 +3,7 @@ import { Point } from 'geojson';
 import { socketEvents } from './constants';
 import updateLocation from './services/deliveryAssociates/updateLocation';
 import deliveryAssociateWatchers from './watchers/deliveryAssociates';
+import shipmentWatchers from './watchers/shipment';
 
 interface IUpdateDALocation {
   email: string;
@@ -56,5 +57,6 @@ const socketHandler = (io: Server) => {
     });
   });
   deliveryAssociateWatchers(io);
+  shipmentWatchers(io);
 };
 export default socketHandler;
