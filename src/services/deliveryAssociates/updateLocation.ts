@@ -7,7 +7,10 @@ const updateLocation = async (
 ): Promise<void> => {
   try {
     const collection = await DeliveryAssociateCollection();
-    await collection.findOneAndUpdate({ email }, { $set: { location } });
+    await collection.findOneAndUpdate(
+      { email },
+      { $set: { currentLocation: location } }
+    );
   } catch (error) {
     throw error;
   }
