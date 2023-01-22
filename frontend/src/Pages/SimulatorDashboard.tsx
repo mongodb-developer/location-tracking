@@ -183,8 +183,8 @@ const SimulatorDashboard = () => {
           <DriverDashboard socket={socket} setShipmentData={setShipmentData} />
           {shipmentData._id ? (
             <ShipmentDashboard
-            // shipmentData={shipmentData}
-            // setShipmentData={setShipmentData}
+              shipmentData={shipmentData}
+              setShipmentData={setShipmentData}
             />
           ) : null}
         </div>
