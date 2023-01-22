@@ -6,26 +6,20 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 
-import { IUser } from '../types';
-
-const initialUserData: IUser = {
-  _id: '',
+const initialUserData = {
   email: '',
   name: '',
-  organization: '',
-  roles: [],
 };
 
 const UserInfo = () => {
   const [userData, setUserData] = useState(initialUserData);
 
-  // useEffect(() => {
-  //   const fetchUserData = async () => {
-  //     const userData = await getUserData();
-  //     setUserData(userData.data);
-  //   };
-  //   fetchUserData();
-  // }, []);
+  useEffect(() => {
+    const email = sessionStorage.getItem('userEmail') || '';
+    const name = email.substring(0, email.indexOf('@'));
+    const nameCaseCorrected = name.charAt(0).toUpperCase() + name.slice(1);
+    setUserData({ email, name: nameCaseCorrected });
+  }, []);
 
   return (
     <Card>
