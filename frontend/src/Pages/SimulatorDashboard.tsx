@@ -25,7 +25,7 @@ import iconDeliveryAssociate from '../assets/icon_delivery_associate.svg';
 import iconPickup from '../assets/icon_pickup.svg';
 import iconDrop from '../assets/icon_drop.svg';
 
-import Dashboard from '../components/DriverDashboard';
+import DriverDashboard from '../components/DriverDashboard';
 import ShipmentDashboard from '../components/ShipmentDashboard';
 
 import './dashboard.css';
@@ -180,15 +180,11 @@ const SimulatorDashboard = () => {
     <div className='container'>
       <div className='col-1'>
         <div>
-          <Dashboard
-            // socket={socket}
-            // deliveryAssociate={deliveryAssociate}
-            // setShipmentData={setShipmentData}
-          />
+          <DriverDashboard socket={socket} setShipmentData={setShipmentData} />
           {shipmentData._id ? (
             <ShipmentDashboard
-              // shipmentData={shipmentData}
-              // setShipmentData={setShipmentData}
+            // shipmentData={shipmentData}
+            // setShipmentData={setShipmentData}
             />
           ) : null}
         </div>
