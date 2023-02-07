@@ -6,7 +6,7 @@ interface IConfig {
 }
 const config: IConfig = {
   port: process.env.PORT || '5050',
-  mongoConnString: process.env.MONGO_CONNECTION_STRING || '',
+  mongoConnString: process.env.MONGODB_CONNECTION_STRING || '',
   secretKey: process.env.SECRET_KEY,
   corsOptions: { origin: '*' },
 };

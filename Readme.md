@@ -7,7 +7,7 @@ The Real-time Delivery Service application allows customers to track their packa
 ## How to Run the Application
 - Clone the repository to your local machine.
 - Create a .env file in the root of the project.
-- Add the MONGO_CONNECTION_STRING
+- Add the MONGODB_CONNECTION_STRING
 - You can easily generate the connection from MongoDB Atlas UI (incase of local instance check this [link](https://www.mongodb.com/docs/drivers/node/current/fundamentals/connection/connect/))
 - Run `npm install` in the root folder to install the required dependencies for the server.
 - Run `npm run dev` in the root folder to start the server.

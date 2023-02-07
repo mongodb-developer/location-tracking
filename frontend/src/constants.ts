@@ -7,7 +7,7 @@ import { IInfo, DashboardStatus } from './types';
 export const DRIVER_EMAIL_DEFAULT = 'john@example.com';
 export const USER_EMAIL_DEFAULT = 'adam@example.com';
 
-export const API_URL = 'http://localhost:5000';
+export const API_URL = 'http://localhost:5050';
 
 export const pickupMarkerIcon = L.icon({
   iconUrl: iconPickup,
